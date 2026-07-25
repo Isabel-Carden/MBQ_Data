@@ -17,8 +17,19 @@ These six scripts match the Ecology initial-submission source code document
 | Trait PCA and PERMANOVA | `scripts/PCA_and_Permanova_Code.R` |
 | Trait univariate analyses | `scripts/Univariate_Analysis_Code.R` |
 
-Most scripts read from public Google Sheets via `googlesheets4` (not only local
-files in `Data/`).
+Most scripts historically read from public Google Sheets via `googlesheets4`.
+They now read **local CSV snapshots** in `Data/` (exported 2026-07-25) so the
+repo is self-contained. Original sheet URLs are commented in each script and
+listed in `Data/README.md`.
+
+## Data (`Data/`)
+
+Paper snapshots:
+- `traits_Clean_Data_Traits_snapshot.csv`
+- `herbivory_assay_snapshot.csv`
+- `nutrient_bioassay_snapshot.csv`
+
+See `Data/README.md` for provenance and how to run scripts from the project root.
 
 ## Folder structure
 

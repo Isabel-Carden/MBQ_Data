@@ -1,11 +1,12 @@
 library(ggplot2)
 library(Rmisc)
 library(dplyr)
-library(googlesheets4)
+library(readr)
 library(patchwork)
 
-#Herbivory Assay
-herb_data <- read_sheet("https://docs.google.com/spreadsheets/d/169_iAfJME3vntApKnjd_MLyABwFc-VSpz4YJqbX4QUw/edit?gid=0#gid=0")
+# Herbivory assay — local snapshot (run from project root).
+# Source sheet: https://docs.google.com/spreadsheets/d/169_iAfJME3vntApKnjd_MLyABwFc-VSpz4YJqbX4QUw/edit
+herb_data <- read_csv("Data/herbivory_assay_snapshot.csv", show_col_types = FALSE)
 
 herb_sum <- summarySE(herb_data, measurevar = "per_loss_hr", groupvars = "Site", na.rm = TRUE)
 
@@ -50,8 +51,9 @@ herb_plot <- ggplot(herb_sum, aes(x = Site, y = per_loss_hr, fill = Site)) +
     axis.text.y = element_text(size = 18)
   )
 
-#Nutrient Bioassay
-grow_out_data <- read_sheet("https://docs.google.com/spreadsheets/d/1rsR_sxOwSnuQDyrUtvjgICQtOJ8asLwo0p5N4bFV3zY/edit?gid=0#gid=0")
+# Nutrient bioassay — local snapshot (run from project root).
+# Source sheet: https://docs.google.com/spreadsheets/d/1rsR_sxOwSnuQDyrUtvjgICQtOJ8asLwo0p5N4bFV3zY/edit
+grow_out_data <- read_csv("Data/nutrient_bioassay_snapshot.csv", show_col_types = FALSE)
 
 growth_sum <- summarySE(grow_out_data, measurevar = "Percent_Change_Weight", groupvars = "Site_Name", na.rm = TRUE)
 

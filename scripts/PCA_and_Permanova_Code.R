@@ -5,15 +5,15 @@ library(vegan)
 library(rcartocolor)
 library(pairwiseAdonis)
 library(tidyverse)
-library(googlesheets4)
 library(Rmisc)
 library(patchwork)
 
 # === Load Data ===
-gs4_deauth()
-Alg_Traits <- read_sheet(
-  "https://docs.google.com/spreadsheets/d/10aAwoejLaJwx9qgimHU3AKo2CSkTIXhkvGFonqSMaXk/edit?gid=1214096800",
-  .name_repair = "minimal"
+# Local snapshot of Clean_Data_Traits (run from project root).
+# Source sheet: https://docs.google.com/spreadsheets/d/10aAwoejLaJwx9qgimHU3AKo2CSkTIXhkvGFonqSMaXk/edit
+Alg_Traits <- readr::read_csv(
+  "Data/traits_Clean_Data_Traits_snapshot.csv",
+  show_col_types = FALSE
 ) %>%
   select(-Thickness, -P_calcification)
 

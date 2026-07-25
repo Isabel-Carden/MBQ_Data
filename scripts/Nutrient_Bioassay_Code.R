@@ -3,14 +3,14 @@
 library(readr)
 library(car)
 library(dplyr)
-library(googlesheets4)
 library(ggpubr)
 library(Rmisc)
 library(ggplot2)
 library(multcompView)
 
-gs4_deauth()
-grow_out_data <- read_sheet("https://docs.google.com/spreadsheets/d/1rsR_sxOwSnuQDyrUtvjgICQtOJ8asLwo0p5N4bFV3zY/edit?gid=0#gid=0")
+# Local snapshot of the grow-out / nutrient bioassay Google Sheet (run from project root).
+# Source sheet: https://docs.google.com/spreadsheets/d/1rsR_sxOwSnuQDyrUtvjgICQtOJ8asLwo0p5N4bFV3zY/edit
+grow_out_data <- read_csv("Data/nutrient_bioassay_snapshot.csv", show_col_types = FALSE)
 
 # Shapiro test - is it normally distributed?
 shapiro.test(grow_out_data$Percent_Change_Weight)

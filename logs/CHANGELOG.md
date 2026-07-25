@@ -1,6 +1,19 @@
 # Changelog — MBQ_Data
 
-## 2026-07-25 (Pacific/Tahiti)
+## 2026-07-25 (Pacific/Tahiti) — data snapshots
+
+### Added local CSV snapshots of the three analysis Google Sheets
+- `Data/traits_Clean_Data_Traits_snapshot.csv` (278 rows; Clean_Data_Traits)
+- `Data/herbivory_assay_snapshot.csv` (60 rows)
+- `Data/nutrient_bioassay_snapshot.csv` (72 rows; grow-out tab)
+- `Data/README.md` documenting provenance and run instructions
+
+### Updated paper scripts to read local snapshots
+Scripts in `scripts/` now use `readr::read_csv("Data/...")` instead of live
+`googlesheets4::read_sheet()` calls. Original Google Sheet URLs remain in
+comments. Run from the project root (`MBQ_Project.Rproj`).
+
+## 2026-07-25 (Pacific/Tahiti) — folder organization
 
 ### Organized repository around Ecology source-of-record scripts
 

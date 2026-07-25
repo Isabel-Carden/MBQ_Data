@@ -4,7 +4,6 @@ library(emmeans)
 library(readr)
 library(car)
 library(dplyr)
-library(googlesheets4)
 library(ggplot2)
 library(Rmisc)
 library(patchwork)
@@ -12,9 +11,12 @@ library(FSA)
 library(dunn.test)
 library(cowplot)
 
-# Authentication and data loading
-gs4_deauth()
-univariate_trait_data <- read_sheet("https://docs.google.com/spreadsheets/d/10aAwoejLaJwx9qgimHU3AKo2CSkTIXhkvGFonqSMaXk/edit?gid=1214096800#gid=1214096800")
+# Local snapshot of Clean_Data_Traits (run from project root).
+# Source sheet: https://docs.google.com/spreadsheets/d/10aAwoejLaJwx9qgimHU3AKo2CSkTIXhkvGFonqSMaXk/edit
+univariate_trait_data <- read_csv(
+  "Data/traits_Clean_Data_Traits_snapshot.csv",
+  show_col_types = FALSE
+)
 
 #Dunn's Test - TH, TS, and Toughness
 univariate_trait_data <- univariate_trait_data %>%

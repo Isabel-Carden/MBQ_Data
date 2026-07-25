@@ -5,13 +5,13 @@ library(readr)
 library(car)
 library(dplyr)
 library(ggpubr)
-library(googlesheets4)
 library(Rmisc)
 library(FSA)
 library(dunn.test)
 
-gs4_deauth()
-herb_data <- read_sheet("https://docs.google.com/spreadsheets/d/169_iAfJME3vntApKnjd_MLyABwFc-VSpz4YJqbX4QUw/edit")
+# Local snapshot of the herbivory Google Sheet (run from project root).
+# Source sheet: https://docs.google.com/spreadsheets/d/169_iAfJME3vntApKnjd_MLyABwFc-VSpz4YJqbX4QUw/edit
+herb_data <- read_csv("Data/herbivory_assay_snapshot.csv", show_col_types = FALSE)
 
 # Shapiro test - is it normally distributed?
 shapiro.test(herb_data$per_loss_hr)
